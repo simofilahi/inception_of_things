@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-myservice
+  annotations:
+    # use the shared ingress-nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /app-one
+        pathType: Prefix
+        backend:
+          service:
+            name: app-1-service
+            port:
+              number: 42
+      - path: /app-two
+        pathType: Prefix
+        backend:
+          service:
+            name: app-2-service
+            port:
+              number: 1337
+      - path: /app-three
+        pathType: Prefix
+        backend:
+           service:
+            name: app-3-service
+            port:
+              number: 24

@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-1-depl
+  labels:
+    app: app-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-1
+    spec:
+      containers:
+      - name: app-1
+        image: app-1-image
+        ports:
+          - containerPort: 42
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-2-depl
+  labels:
+    app: app-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-2
+    spec:
+      containers:
+      - name: app-2
+        image: app-2-image
+        ports:
+          - containerPort: 1337
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-3-depl
+  labels:
+    app: app-3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-3
+    spec:
+      containers:
+      - name: app-3
+        image: app-3-image
+        ports:
+          - containerPort: 24
