@@ -5,6 +5,7 @@ $k3s_server_script = <<-SCRIPT
   echo "Start installation of k3s in the server"
   sudo curl https://releases.rancher.com/install-docker/19.03.sh | sh
   sudo curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-iface 'eth1' server --no-deploy traefik" sh -s - --docker
+  sudo chmod 777 /etc/rancher/k3s/k3s.yaml
 SCRIPT
 
 $ssh_config_script = <<-SCRIPT

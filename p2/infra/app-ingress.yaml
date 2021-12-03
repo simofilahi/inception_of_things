@@ -11,7 +11,7 @@ spec:
     http:
       paths:
       - path: /
-        pathType: Exact
+        pathType: Prefix
         backend:
           service:
             name: app-1-service
@@ -21,7 +21,7 @@ spec:
     http:
       paths:
       - path: /
-        pathType: Exact
+        pathType: Prefix
         backend:
           service:
             name: app-2-service
@@ -31,7 +31,7 @@ spec:
     http:
       paths:
       - path: /
-        pathType: Exact
+        pathType: Prefix
         backend:
           service:
             name: app-3-service
