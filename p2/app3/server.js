@@ -2,10 +2,8 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.static("public"));
-
 app.get("/app-three", (req, res, next) => {
-  res.send("index.html");
+  res.send("<h1>Hello from app3.com</h1>");
 });
 
 const PORT = 24;

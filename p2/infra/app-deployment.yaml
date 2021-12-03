@@ -9,12 +9,17 @@ spec:
   selector:
     matchLabels:
       app: app-1
+  template:
+    metadata:
+      labels:
+        app: app-1
     spec:
       containers:
-      - name: app-1
-        image: app-1-image
-        ports:
-          - containerPort: 42
+        - name: app-1
+          image: app-1-image
+          ports:
+            - containerPort: 42
+          imagePullPolicy: Never
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -27,12 +32,17 @@ spec:
   selector:
     matchLabels:
       app: app-2
+  template:
+    metadata:
+      labels:
+        app: app-2
     spec:
       containers:
-      - name: app-2
-        image: app-2-image
-        ports:
-          - containerPort: 1337
+        - name: app-2
+          image: app-2-image
+          ports:
+            - containerPort: 1337
+          imagePullPolicy: Never
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -45,9 +55,14 @@ spec:
   selector:
     matchLabels:
       app: app-3
+  template:
+    metadata:
+      labels:
+        app: app-3
     spec:
       containers:
       - name: app-3
         image: app-3-image
         ports:
           - containerPort: 24
+        imagePullPolicy: Never
