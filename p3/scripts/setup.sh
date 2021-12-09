@@ -27,7 +27,7 @@ curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/
 chmod +x /usr/local/bin/argocd
 sudo modprobe ip_tables
 sudo echo 'ip_tables' >> /etc/modules
-kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 
 
 
